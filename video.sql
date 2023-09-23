@@ -1,5 +1,5 @@
 
-drop table v_user;
+drop table IF EXISTS v_user;
 CREATE TABLE `v_user` (
 `id` int NOT NULL AUTO_INCREMENT,
 `nickname` varchar(200) NOT NULL,
@@ -27,7 +27,7 @@ alter table v_user modify column `mobile` varchar(200) ;
 
 show create table v_user;
 
-drop table v_classification;
+drop table IF EXISTS v_classification;
 CREATE TABLE `v_classification` (
 `id` int NOT NULL AUTO_INCREMENT,
 `title` varchar(200) NOT NULL,
@@ -36,7 +36,7 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
-drop table v_video;
+drop table IF EXISTS v_video;
 CREATE TABLE `v_video` (
 `id` int NOT NULL AUTO_INCREMENT,
 `title` varchar(200) NOT NULL,
@@ -56,7 +56,7 @@ PRIMARY KEY (`id`)
   INSERT INTO v_video(title, `desc`, classification, file, cover) VALUES ("1", "1", "1", "1", "1");
 
 
-drop table myadmin_mychunkedupload;
+drop table IF EXISTS myadmin_mychunkedupload;
  CREATE TABLE `myadmin_mychunkedupload` (
   `id` int NOT NULL AUTO_INCREMENT,
   `upload_id` varchar(200) DEFAULT NULL,
@@ -74,7 +74,7 @@ drop table myadmin_mychunkedupload;
 CREATE USER 'goldenli'@'%' IDENTIFIED BY 'goldenli';
 GRANT ALL PRIVILEGES ON *.* TO 'goldenli'@'%' IDENTIFIED BY 'goldenli' WITH GRANT OPTION;
 
-drop table v_feedback;
+drop table IF EXISTS v_feedback;
 CREATE TABLE `v_feedback` (
 `id` int NOT NULL AUTO_INCREMENT,
 `contact` varchar(200) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `v_feedback` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
-drop table v_comment;
+drop table IF EXISTS v_comment;
 CREATE TABLE `v_comment` (
 `id` int NOT NULL AUTO_INCREMENT,
 `user` varchar(200) NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `v_comment` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
-
+drop table IF EXISTS django_admin_log;
 CREATE TABLE `django_admin_log` (
   `id` int NOT NULL AUTO_INCREMENT,
   `action_time` datetime(6) NOT NULL,
